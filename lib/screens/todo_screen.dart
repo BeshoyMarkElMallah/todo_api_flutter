@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:todo_api/models/todo.dart';
 import 'package:todo_api/services/todo_service.dart';
@@ -81,9 +83,15 @@ class _TodosScreenState extends State<TodosScreen> {
               child: ListView.builder(
                 itemBuilder: (context, index) {
                   return Card(
+                    elevation: 5,
                     child: ListTile(
                       title: Text(
                         titles[index]['title'].toString(),
+                        style: TextStyle(
+                            fontSize: 20,
+                            decoration: titles[index]['completed']
+                                ? TextDecoration.lineThrough
+                                : null),
                       ),
                       leading: Checkbox(
                           value: titles[index]['completed'],
