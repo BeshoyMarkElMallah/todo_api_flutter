@@ -1,5 +1,4 @@
 import 'dart:ui';
-
 import 'package:flutter/material.dart';
 import 'package:todo_api/services/todo_service.dart';
 
@@ -21,11 +20,6 @@ class _TodosScreenState extends State<TodosScreen> {
     data?.forEach((element) {
       titles.add(element);
     });
-  }
-
-  @override
-  void initState() {
-    super.initState();
   }
 
   @override
