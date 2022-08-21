@@ -2,7 +2,6 @@ import 'dart:convert';
 
 import 'package:http/http.dart';
 import 'package:http/http.dart';
-import 'package:todo_api/models/todo.dart';
 
 class Todo {
   static String title = "";

@@ -1,7 +1,6 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
-import 'package:todo_api/models/todo.dart';
 import 'package:todo_api/services/todo_service.dart';
 
 class TodosScreen extends StatefulWidget {
