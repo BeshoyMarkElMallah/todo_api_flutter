@@ -26,7 +26,7 @@ class _TodosScreenState extends State<TodosScreen> {
   Widget build(BuildContext context) {
     getData(context);
     return Scaffold(
-      backgroundColor: Colors.lightBlueAccent,
+      backgroundColor: Colors.deepPurple,
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -42,7 +42,7 @@ class _TodosScreenState extends State<TodosScreen> {
                   child: Icon(
                     Icons.list,
                     size: 30.0,
-                    color: Colors.lightBlueAccent,
+                    color: Colors.purple,
                   ),
                 ),
                 const SizedBox(
@@ -75,8 +75,14 @@ class _TodosScreenState extends State<TodosScreen> {
               ),
               child: ListView.builder(
                 itemBuilder: (context, index) {
-                  return Card(
-                    elevation: 5,
+                  return Dismissible(
+                    key: Key(titles[index]['title']),
+                    onDismissed: (direction) {
+                      setState(() {
+                        titles.removeAt(index);
+                        data?.removeAt(index);
+                      });
+                    },
                     child: ListTile(
                       title: Text(
                         titles[index]['title'].toString(),
@@ -87,6 +93,7 @@ class _TodosScreenState extends State<TodosScreen> {
                                 : null),
                       ),
                       leading: Checkbox(
+                          activeColor: Colors.purple,
                           value: titles[index]['completed'],
                           onChanged: (value) {
                             setState(() {
